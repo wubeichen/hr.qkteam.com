@@ -24,6 +24,8 @@ class CreateRecruitmentTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('introduction');
+            $table->string('expectation');
+            $table->string('skill');
         });
     }
 
