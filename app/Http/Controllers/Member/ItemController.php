@@ -7,5 +7,9 @@ use App\Http\Controllers\Controller;
 
 class ItemController extends Controller
 {
-    //
+    public function index (\App\Models\Member $member){
+        return view('page.member.item', [
+            'member' => $member,
+        ]);
+    }
 }

@@ -16,28 +16,29 @@ Route::group([
     'prefix'    => 'auth',
     'as'        => 'auth.'
 ],function(){
-    Route::get('/','SigninController@index')                    ->name('signin');
-    Route::post('/','SigninController@signin')                  ->name('signin:action');
+    Route::get('/','SigninController@index')                                    ->name('signin');
+    Route::post('/','SigninController@signin')                                  ->name('signin:action');
 });
 Route::group([
     'namespace' =>  'Memeber',
     'prefix'    =>  'member',
     'as'        =>  'member.'
 ],function(){
-    Route::get('/','ListController@index')                      ->name('index');
-    Route::get('new','CreateController@index')                  ->name('new');
-    Route::post('new','CreateController@create')                ->name('new:action');
-    Route::get('{member}','ItemController@index')               ->name('item');
-    Route::get('{member}/edit','EditController@index')          ->name('edit');
-    Route::put('{member}/edit','EditController@edit')           ->name('edit:action');
-    Route::post('recruitment/{recruitment}','ImportController@import') ->name('import');
+    Route::get('/','ListController@index')                                      ->name('index');
+    Route::get('new','CreateController@index')                                  ->name('new');
+    Route::post('new','CreateController@create')                                ->name('new:action');
+    Route::get('{member}','ItemController@index')                               ->name('item');
+    Route::get('{member}/edit','EditController@index')                          ->name('edit');
+    Route::put('{member}/edit','EditController@edit')                           ->name('edit:action');
+    Route::post('recruitment/{recruitment}','CreateController@create')          ->name('import');
 });
 Route::group([
     'namespace' =>  'Recruitment',
     'prefix'    =>  'recruitment',
     'as'        =>  'recruitment.'
 ],function(){
-    Route::get('/','FromComtroller@index')                      ->name('index');
-    Route::post('/','FromController@create')                    ->name('index:action');
-    Route::get('{recruitment}','ItemController@index')          ->name('item');
+    Route::get('/','FromComtroller@index')                                      ->name('index');
+    Route::post('/','FromController@create')                                    ->name('index:action');
+    Route::get('list','ListController@index')                                   ->name('list');
+    Route::get('{recruitment}','ItemController@index')                          ->name('item');
 });
