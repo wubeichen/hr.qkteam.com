@@ -10,4 +10,5 @@
     $member->email = $request->email;
     $member->bank_number = $request->bank_number;
     $member->active = $request->active;
+    action:route('new:action')
 */

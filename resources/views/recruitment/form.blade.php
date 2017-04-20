@@ -12,4 +12,5 @@
     $recruitment->expectation = $request->expectation;
     $recruitment->skill = $request->skill;
     $recruitment->save();
+    action:route(index:action)
 */
