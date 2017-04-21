@@ -1,4 +1,4 @@
-/*
+{{--
     $members as $member [
         'name'
         'gender'
@@ -10,4 +10,5 @@
         'bank_number'
         'active'
     ]
-*/
+
+--}}

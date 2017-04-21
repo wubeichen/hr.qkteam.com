@@ -1,3 +1,4 @@
-/*
+{{--
     print from posts successfully
-*/
+
+--}}

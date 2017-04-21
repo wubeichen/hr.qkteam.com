@@ -30,15 +30,15 @@ Route::group([
     Route::get('{member}','ItemController@index')                               ->name('item');
     Route::get('{member}/edit','EditController@index')                          ->name('edit');
     Route::put('{member}/edit','EditController@edit')                           ->name('edit:action');
-    Route::post('recruitment/{recruitment}','CreateController@create')          ->name('import');
+    Route::post('recruitment/{recruitment}','ImportController@create')          ->name('import');
 });
 Route::group([
     'namespace' =>  'Recruitment',
     'prefix'    =>  'recruitment',
     'as'        =>  'recruitment.'
 ],function(){
-    Route::get('/','FromComtroller@index')                                      ->name('index');
-    Route::post('/','FromController@create')                                    ->name('index:action');
+    Route::get('/','FormComtroller@index')                                      ->name('index');
+    Route::post('/','FormController@create')                                    ->name('index:action');
     Route::get('list','ListController@index')                                   ->name('list');
     Route::get('{recruitment}','ItemController@index')                          ->name('item');
 });

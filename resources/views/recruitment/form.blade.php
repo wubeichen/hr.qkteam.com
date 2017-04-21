@@ -1,4 +1,4 @@
-/*
+{{--
     recruitment from[POST]
     $recruitment = new \App\Models\Recruitment;
     $recruitment->name = $request->name;
@@ -13,4 +13,4 @@
     $recruitment->skill = $request->skill;
     $recruitment->save();
     action:route(index:action)
-*/
+--}}

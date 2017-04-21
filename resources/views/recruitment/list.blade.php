@@ -1,4 +1,4 @@
-/*
+{{--
     $recruitments as $recruitment [
         'name'
         'gender'
@@ -11,4 +11,5 @@
         'expectation'
         'skill'
     ]
-*/
+
+--}}

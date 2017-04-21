@@ -23,8 +23,8 @@ class CreateMemberTable extends Migration
             $table->string('qq');
             $table->string('phone');
             $table->string('email');
-            $table->string('bank_number');
-            $table->boolean('active');
+            $table->string('bank_number')->nullable();
+            $table->boolean('active')->default(0);
         });
     }
 
