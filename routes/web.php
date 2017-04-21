@@ -30,7 +30,7 @@ Route::group([
     Route::get('{member}','ItemController@index')                               ->name('item');
     Route::get('{member}/edit','EditController@index')                          ->name('edit');
     Route::put('{member}/edit','EditController@edit')                           ->name('edit:action');
-    Route::post('recruitment/{recruitment}','CreateController@create')          ->name('import');
+    Route::post('recruitment/{recruitment}','ImportController@create')          ->name('import');
 });
 Route::group([
     'namespace' =>  'Recruitment',

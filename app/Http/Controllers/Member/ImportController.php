@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\\Member;
+namespace App\Http\Controllers\Member;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class Importcontroller extends Controller
+class ImportController extends Controller
 {
     public function create(Request $request){
         $member = new \App\Models\Member;
