@@ -1,4 +1,4 @@
-/*
+{{--
     create From[POST]
     $member = new \App\Models\Member;
     $member->name = $request->name;
@@ -11,4 +11,4 @@
     $member->bank_number = $request->bank_number;
     $member->active = $request->active;
     action:route('new:action')
-*/
+--}}
