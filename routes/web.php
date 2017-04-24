@@ -43,3 +43,6 @@ Route::group([
     Route::get('list','ListController@index')                                   ->name('list');
     Route::get('{recruitment}','ItemController@index')                          ->name('item');
 });
+Route::get('/fuck',function(){
+    return view('welcome');
+});
