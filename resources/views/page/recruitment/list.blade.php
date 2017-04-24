@@ -31,7 +31,7 @@
             <tbody>
             @foreach ($recruitments as $recruitment)
                 <tr>
-                <td>{{$recruiment->name}}</td>
+                <td><a href="{{ route('recuitment.item',[$recuitment->id])}}">{{$recruiment->name}}</a></td>
                 <td>{{$recruiment->school_number}}</td>
                 <td>{{$recruiment->email}}</td>
                 <td>{{$recruiment->qq}}</td>

@@ -16,7 +16,7 @@ class FormController extends Controller
         $recruitment->name = $request->name;
         $recruitment->gender = $request->gender;
         $recruitment->birthday = $request->birthday;
-        $recruitment->school_name = $request->school_name;
+        $recruitment->school_number = $request->school_number;
         $recruitment->qq = $request->qq;
         $recruitment->phone = $request->phone;
         $recruitment->email = $request->email;
