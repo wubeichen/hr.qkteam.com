@@ -2,9 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Member extends Model
+class Member extends Authenticatable
 {
     protected $table = 'memeber';
+
+    public function __construct($attributes = [])
+    {
+        parent::__construct($attributes);
+    }
 }
