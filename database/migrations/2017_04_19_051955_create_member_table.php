@@ -17,6 +17,7 @@ class CreateMemberTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
+            $table->string('password');
             $table->boolean('gender');
             $table->date('birthday');
             $table->string('school_number');
@@ -25,6 +26,7 @@ class CreateMemberTable extends Migration
             $table->string('email');
             $table->string('bank_number')->nullable();
             $table->boolean('active')->default(0);
+            $table->integer('role_id')->default(3);
         });
     }
 
