@@ -13,10 +13,11 @@ class CreateController extends Controller
 
     public function create(Request $request){
         $member = new \App\Models\Member;
+        $member->password = bcrypt('123456');
         $member->name = $request->name;
         $member->gender = $request->gender;
         $member->birthday = $request->birthday;
-        $member->school_name = $request->school_name;
+        $member->school_number = $request->school_number;
         $member->qq = $request->qq;
         $member->phone = $request->phone;
         $member->email = $request->email;
