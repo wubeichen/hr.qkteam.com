@@ -1,5 +1,5 @@
 {{--
-    recruitment from[POST]
+    recruitment form[POST]
     $recruitment = new \App\Models\Recruitment;
     $recruitment->name = $request->name;
     $recruitment->gender = $request->gender;
