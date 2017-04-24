@@ -1,50 +1,42 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
-        <meta charset="utf-8">
-        <title>HR管理</title>
-    </head>
-    
-    <body>
-        <div class="container">
-            <div class="jumbotron">
-                <h1>QKTEAM-HR</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <nav class="navbar navbar-default" role="navigation">
-                    <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="#">菜鸟教程</a>
-                    </div>
-                    <div>
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">iOS</a></li>
-                            <li><a href="#">SVN</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Java
-                                    <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">jmeter</a></li>
-                                    <li><a href="#">EJB</a></li>
-                                    <li><a href="#">Jasper Report</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">分离的链接</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">另一个分离的链接</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    </div>
-                </nav>
-                @yield('main')
-            </div>
-        </div>
-    </body>
-</html>
+{{--
+    $members as $member [
+        'name'
+        'gender'
+        'bithday'
+        'school_number'
+        'qq'
+        'phone'
+        'email'
+        'bank_number'
+        'active'
+    ]
+
+--}}
+
+@extends('index.basic')
+@section('main')
+    <div>
+        <table class="table table-hover">
+            <caption>成员列表</caption>
+            <thead>
+                <tr>
+                <th>名字</th>
+                <th>学号</th>
+                <th>email</th>
+                <th>QQ</th>
+                <th>phone</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($members as $member)
+                <tr>
+                <td>{{$member->name}}</td>
+                <td>{{$member->school_number}}</td>
+                <td>{{$member->email}}</td>
+                <td>{{$member->qq}}</td>
+                <td>{{$member->phone}}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
