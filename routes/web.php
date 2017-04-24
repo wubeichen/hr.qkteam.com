@@ -38,7 +38,7 @@ Route::group([
     'as'        =>  'recruitment.'
 
 ],function(){
-    Route::get('/','FormComtroller@index')                                      ->name('index');
+    Route::get('/','FormController@index')                                      ->name('index');
     Route::post('/','FormController@create')                                    ->name('index:action');
     Route::get('list','ListController@index')                                   ->name('list');
     Route::get('{recruitment}','ItemController@index')                          ->name('item');
