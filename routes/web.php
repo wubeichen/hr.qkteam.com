@@ -20,7 +20,7 @@ Route::group([
     Route::post('/','SigninController@signin')                                  ->name('signin:action');
 });
 Route::group([
-    'namespace' =>  'Memeber',
+    'namespace' =>  'Member',
     'prefix'    =>  'member',
     'as'        =>  'member.'
 ],function(){
