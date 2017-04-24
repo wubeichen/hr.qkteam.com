@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Recruitment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class FromController extends Controller
+class FormController extends Controller
 {
     public function index(){
         return view('page.recruitment.form');
@@ -16,7 +16,7 @@ class FromController extends Controller
         $recruitment->name = $request->name;
         $recruitment->gender = $request->gender;
         $recruitment->birthday = $request->birthday;
-        $recruitment->school_name = $request->school_name;
+        $recruitment->school_number = $request->school_number;
         $recruitment->qq = $request->qq;
         $recruitment->phone = $request->phone;
         $recruitment->email = $request->email;

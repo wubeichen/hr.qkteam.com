@@ -21,7 +21,6 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($recruitments as $recruitment)
                 <tr>
                 <td>{{$recruiment->name}}</td>
                 <td>{{$recruiment->gender}}</td>
@@ -29,7 +28,6 @@
                 <td>{{$recruiment->school_number}}</td>
                 <td>{{$recruiment->email}}</td>
                 </tr>
-            @endforeach
             </tbody>
         </table>
     </div>
@@ -44,7 +42,6 @@
                 <th>技能</th>
             </thead>
             <tbody>
-            @foreach ($recruitments as $recruitment)
                 <tr>
                 <td>{{$recruiment->qq}}</td>
                 <td>{{$recruiment->phone}}</td>
@@ -52,7 +49,6 @@
                 <td>{{$recruiment->expectation}}</td>
                 <td>{{$recruiment->skill}}</td>
                 </tr>
-            @endforeach
             </tbody>
         </table>
     </div>
