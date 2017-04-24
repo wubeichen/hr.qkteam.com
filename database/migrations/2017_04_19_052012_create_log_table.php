@@ -18,7 +18,6 @@ class CreateLogTable extends Migration
             $table->timestamps();
             $table->string('operator_id');
             $table->string('member_id');
-            $table->date('date');
             $table->string('action');
             $table->text('description');
         });

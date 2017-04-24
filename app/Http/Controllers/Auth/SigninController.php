@@ -17,8 +17,8 @@ class SigninController extends Controller
 
     public function signin(Request $request){
         if(Auth::attempt([
-            'username'  =>  $request->username,
-            'password'  =>  $request->password
+            'school_number'  =>  $request->school_number,
+            'password'       =>  $request->password
         ])){
             return redirect()->route('member.index');
         }

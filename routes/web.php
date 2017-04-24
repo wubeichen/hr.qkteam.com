@@ -12,9 +12,9 @@
 */
 
 Route::group([
-    'namespace' => 'Auth',
-    'prefix'    => 'auth',
-    'as'        => 'auth.'
+    'namespace'     => 'Auth',
+    'prefix'        => 'auth',
+    'as'            => 'auth.',
 ],function(){
     Route::get('/','SigninController@index')                                    ->name('signin');
     Route::post('/','SigninController@signin')                                  ->name('signin:action');
@@ -36,6 +36,7 @@ Route::group([
     'namespace' =>  'Recruitment',
     'prefix'    =>  'recruitment',
     'as'        =>  'recruitment.'
+
 ],function(){
     Route::get('/','FormComtroller@index')                                      ->name('index');
     Route::post('/','FormController@create')                                    ->name('index:action');
