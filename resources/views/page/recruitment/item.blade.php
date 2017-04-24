@@ -22,18 +22,17 @@
             </thead>
             <tbody>
                 <tr>
-                <td>{{$recruiment->name}}</td>
-                <td>{{$recruiment->gender}}</td>
-                <td>{{$recruiment->birthday}}</td>
-                <td>{{$recruiment->school_number}}</td>
-                <td>{{$recruiment->email}}</td>
+                <td>{{$recruitment->name}}</td>
+                <td>{{$recruitment->gender}}</td>
+                <td>{{$recruitment->birthday}}</td>
+                <td>{{$recruitment->school_number}}</td>
+                <td>{{$recruitment->email}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="row">
         <table class="table table-hover">
-            <caption>申请列表</caption>
             <thead>
                 <th>QQ</th>
                 <th>phone</th>
@@ -43,11 +42,11 @@
             </thead>
             <tbody>
                 <tr>
-                <td>{{$recruiment->qq}}</td>
-                <td>{{$recruiment->phone}}</td>
-                <td>{{$recruiment->introduction}}</td>
-                <td>{{$recruiment->expectation}}</td>
-                <td>{{$recruiment->skill}}</td>
+                <td>{{$recruitment->qq}}</td>
+                <td>{{$recruitment->phone}}</td>
+                <td>{{$recruitment->introduction}}</td>
+                <td>{{$recruitment->expectation}}</td>
+                <td>{{$recruitment->skill}}</td>
                 </tr>
             </tbody>
         </table>

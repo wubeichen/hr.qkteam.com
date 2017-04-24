@@ -31,11 +31,11 @@
             <tbody>
             @foreach ($recruitments as $recruitment)
                 <tr>
-                <td><a href="{{ route('recruitment.item',[$recruitment->id])}}">{{$recruiment->name}}</a></td>
-                <td>{{$recruiment->school_number}}</td>
-                <td>{{$recruiment->email}}</td>
-                <td>{{$recruiment->qq}}</td>
-                <td>{{$recruiment->phone}}</td>
+                <td><a href="{{ route('recruitment.item',[$recruitment->id])}}">{{$recruitment->name}}</a></td>
+                <td>{{$recruitment->school_number}}</td>
+                <td>{{$recruitment->email}}</td>
+                <td>{{$recruitment->qq}}</td>
+                <td>{{$recruitment->phone}}</td>
                 </tr>
             @endforeach
             </tbody>
