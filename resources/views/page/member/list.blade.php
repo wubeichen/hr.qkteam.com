@@ -30,7 +30,7 @@
             <tbody>
             @foreach ($members as $member)
                 <tr>
-                <td>{{$member->name}}</td>
+                <td><a href="{{route('member.item', [$member->id])}}">{{$member->name}}</a></td>
                 <td>{{$member->school_number}}</td>
                 <td>{{$member->email}}</td>
                 <td>{{$member->qq}}</td>
