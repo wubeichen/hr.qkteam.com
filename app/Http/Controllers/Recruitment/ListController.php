@@ -7,9 +7,15 @@ use App\Http\Controllers\Controller;
 
 class ListController extends Controller
 {
-    public function index(){
-        $recruitments = \App\Models\Recruitment::all();
-        return view('page.recruitment.list', [
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $recruitments = \App\Models\Recruitment::latest()->get();
+        return view('recruitment.list', [
             'recruitments' => $recruitments,
         ]);
     }

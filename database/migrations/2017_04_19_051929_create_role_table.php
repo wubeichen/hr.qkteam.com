@@ -17,11 +17,13 @@ class CreateRoleTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
+            $table->string('alias');
         });
         DB::table('role')->insert([
-            [ 'id' => 1, 'name' => '负责人' ],
-            [ 'id' => 2, 'name' => '干事' ],
-            [ 'id' => 3, 'name' => '学员' ],
+            [ 'id' => 1, 'name' => '负责人', 'alias' => 'director' ],
+            [ 'id' => 2, 'name' => '组长', 'alias' => 'leader' ],
+            [ 'id' => 3, 'name' => '成员', 'alias' => 'member' ],
+            [ 'id' => 4, 'name' => '学员', 'alias' => 'student' ],
         ]);
     }
 

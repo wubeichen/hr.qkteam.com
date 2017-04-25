@@ -19,7 +19,7 @@ class CreateLogTable extends Migration
             $table->string('operator_id');
             $table->string('member_id');
             $table->string('action');
-            $table->text('description');
+            $table->text('description')->nullable();
         });
     }
 

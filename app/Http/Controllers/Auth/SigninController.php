@@ -9,18 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class SigninController extends Controller
 {
-    public function __construct()
+    public function signin(Request $request)
     {
-        $this->middleware('guest');
-    }
-
-    public function signin(Request $request){
-        if(Auth::attempt([
+        if (!Auth::attempt([
             'school_number'  =>  $request->school_number,
-            'password'       =>  $request->password
-        ])){
-            return redirect()->route('member.index');
-        }
-        return redirect()->route('auth.signin');
+            'password'       =>  $request->password,
+        ])) {
+            \Auth::logout();
+        };
+        return redirect()->route('home');
     }
 }

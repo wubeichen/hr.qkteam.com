@@ -4,14 +4,21 @@ namespace App\Http\Controllers\Recruitment;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests as R;
 
 class FormController extends Controller
 {
-    public function index(){
-        return view('page.recruitment.form');
+    public function __construct()
+    {
     }
 
-    public function create(Request $request){
+    public function index()
+    {
+        return view('recruitment.form');
+    }
+
+    public function create(R\RecruitmentRequest $request)
+    {
         $recruitment = new \App\Models\Recruitment;
         $recruitment->name = $request->name;
         $recruitment->gender = $request->gender;
@@ -24,6 +31,11 @@ class FormController extends Controller
         $recruitment->expectation = $request->expectation;
         $recruitment->skill = $request->skill;
         $recruitment->save();
-        return view('page.recruitment.success');
+        return redirect()->route('recruitment.apply:success');
+    }
+
+    public function success()
+    {
+        return view('recruitment.success');
     }
 }

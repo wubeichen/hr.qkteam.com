@@ -7,9 +7,15 @@ use App\Http\Controllers\Controller;
 
 class ListController extends Controller
 {
-    public function index(){
-        $members = \App\Models\Member::all();
-        return view('page.member.list', [
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $members = \App\Models\Member::latest()->get();
+        return view('member.list', [
             'members' => $members,
         ]);
     }

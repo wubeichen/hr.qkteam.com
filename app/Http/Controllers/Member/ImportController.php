@@ -7,16 +7,24 @@ use App\Http\Controllers\Controller;
 
 class ImportController extends Controller
 {
-    public function create(Request $request){
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function create(\App\Models\Recruitment $recruitment)
+    {
         $member = new \App\Models\Member;
-        $member->name = $request->name;
-        $member->gender = $request->gender;
-        $member->birthday = $request->birthday;
-        $member->school_name = $request->school_name;
-        $member->qq = $request->qq;
-        $member->phone = $request->phone;
-        $member->email = $request->email;
+        $member->name = $recruitment->name;
+        $member->gender = $recruitment->gender;
+        $member->birthday = $recruitment->birthday;
+        $member->school_number = $recruitment->school_number;
+        $member->qq = $recruitment->qq;
+        $member->phone = $recruitment->phone;
+        $member->email = $recruitment->email;
+        $member->password = bcrypt(md5($recruitment->school_number));
+        $member->active = 1;
         $member->save();
-        return redirect() -> route('member.index');
+        return redirect()->route('member.item', [$member->id]);
     }
 }
