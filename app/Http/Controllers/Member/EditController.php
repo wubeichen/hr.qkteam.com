@@ -9,7 +9,7 @@ class EditController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('can:update,member');
     }
 
     public function index(\App\Models\Member $member)

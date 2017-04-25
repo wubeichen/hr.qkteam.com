@@ -9,7 +9,7 @@ class ActiveController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('can:create,App\Models\Member');
     }
 
     public function in(\App\Models\Member $member)

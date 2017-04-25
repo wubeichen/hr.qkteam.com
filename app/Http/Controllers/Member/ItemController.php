@@ -9,7 +9,7 @@ class ItemController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('can:view,member');
     }
 
     public function index(\App\Models\Member $member)

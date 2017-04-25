@@ -9,7 +9,7 @@ class CreateController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('can:create,App\Models\Member');
     }
 
     public function index()

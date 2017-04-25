@@ -17,7 +17,7 @@ class FormController extends Controller
         return view('recruitment.form');
     }
 
-    public function create(R\RecruitmentRequest $request)
+    public function create(R\Recruitment\ApplicationRequest $request)
     {
         $recruitment = new \App\Models\Recruitment;
         $recruitment->name = $request->name;

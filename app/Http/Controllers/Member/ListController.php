@@ -9,7 +9,7 @@ class ListController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('can:list,App\Models\Member');
     }
 
     public function index()
