@@ -18,16 +18,24 @@ class CreateMemberTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('password');
-            $table->boolean('gender');
-            $table->date('birthday');
-            $table->string('school_number');
-            $table->string('qq');
-            $table->string('phone');
-            $table->string('email');
+            $table->rememberToken();
+            $table->boolean('gender')->default(0);
+            $table->string('birthday')->nullable();
+            $table->string('school_number')->unique();
+            $table->string('qq')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->string('bank_number')->nullable();
             $table->boolean('active')->default(0);
-            $table->integer('role_id')->default(3);
+            $table->integer('role_id')->default(4);
         });
+        DB::table('member')->insert([
+            'name'          => '管理员',
+            'password'      => bcrypt(md5('root')),
+            'school_number' => 'root',
+            'active'        => 1,
+            'role_id'       => 1,
+        ]);
     }
 
     /**

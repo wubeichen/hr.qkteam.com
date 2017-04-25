@@ -17,15 +17,15 @@ class CreateRecruitmentTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
-            $table->boolean('gender');
-            $table->date('birthday');
-            $table->string('school_number');
-            $table->string('qq');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('introduction');
-            $table->string('expectation');
-            $table->string('skill');
+            $table->boolean('gender')->default(0);
+            $table->string('birthday')->nullable();
+            $table->string('school_number')->nullable();
+            $table->string('qq')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->text('introduction')->nullable();
+            $table->text('expectation')->nullable();
+            $table->text('skill')->nullable();
         });
     }
 
