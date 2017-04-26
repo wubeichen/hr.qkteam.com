@@ -2,27 +2,33 @@
 
 namespace App\Http\Controllers\Member;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests as R;
 
 class ActiveController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:create,App\Models\Member');
+        $this->middleware('can:active,member');
     }
 
-    public function in(\App\Models\Member $member)
+    public function change(\App\Models\Member $member, R\Member\ActiveRequest $request)
     {
-        $member->active = 1;
-        $member->save();
-        return redirect()->route('member.item', [$member->id]);
-    }
-
-    public function out(\App\Models\Member $member)
-    {
-        $member->active = 0;
-        $member->save();
+        if ($request->action === 'in' && !$member->active) {
+            $member->active = 1;
+            $member->save();
+            $log = new \App\Models\Log;
+            $log->operated_at = $request->time;
+            $log->init($member, 'in', '加入工作室');
+            $member->logs()->save($log);
+        } elseif ($request->action === 'out' && $member->active) {
+            $member->active = 0;
+            $member->save();
+            $log = new \App\Models\Log;
+            $log->operated_at = $request->time;
+            $log->init($member, 'out', '退出工作室');
+            $member->logs()->save($log);
+        }
         return redirect()->route('member.item', [$member->id]);
     }
 }

@@ -31,9 +31,9 @@ class ApplicationRequest extends FormRequest
             'qq'            => 'required|string|max:30',
             'phone'         => 'required|string|max:30',
             'email'         => 'required|email',
-            'introduction'  => 'required|string|max:1000',
-            'expectation'   => 'required|string|max:1000',
-            'skill'         => 'required|string|max:1000',
+            'introduction'  => 'nullable|string|max:1000',
+            'expectation'   => 'nullable|string|max:1000',
+            'skill'         => 'nullable|string|max:1000',
         ];
     }
 }

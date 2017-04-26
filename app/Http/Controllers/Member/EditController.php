@@ -21,13 +21,16 @@ class EditController extends Controller
 
     public function edit(\App\Models\Member $member, R\Member\EditRequest $request)
     {
-        $member = new \App\Models\Member;
         $member->birthday = $request->birthday;
         $member->qq = $request->qq;
         $member->phone = $request->phone;
         $member->email = $request->email;
+        $member->bank = $request->bank;
         $member->bank_number = $request->bank_number;
         $member->save();
+        $log = new \App\Models\Log;
+        $log->init($member, 'edit', '修改个人信息');
+        $member->logs()->save($log);
         return redirect()->route('member.item', [$member->id]);
     }
 }

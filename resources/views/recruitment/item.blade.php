@@ -30,8 +30,16 @@
             </article>
         </div>
     </div>
+@if ($member)
+    <hr>
+    <a class="button" href="{{ route('member.item', [$member->id]) }}">查看该成员</a>
+@else
+@can ('create', \App\Models\Member::class)
     <hr>
     {!! Form::open(['route' => ['member.import', $recruitment->id]]) !!}
+        <input type="text" class="input" style="width: 200px" name="time" value="{{ date('Y-m-d', time()) }}">
         <button class="button is-danger">加入工作室</button>
     {!! Form::close() !!}
+@endcan
+@endif
 @endsection

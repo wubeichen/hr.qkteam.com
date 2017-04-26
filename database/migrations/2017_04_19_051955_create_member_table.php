@@ -25,6 +25,7 @@ class CreateMemberTable extends Migration
             $table->string('qq')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
+            $table->string('bank')->nullable();
             $table->string('bank_number')->nullable();
             $table->boolean('active')->default(0);
             $table->integer('role_id')->default(4);

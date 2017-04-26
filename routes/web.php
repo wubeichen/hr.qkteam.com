@@ -32,8 +32,10 @@ Route::group([
     Route::get('{member}', 'ItemController@index')->name('item');
     Route::get('{member}/edit', 'EditController@index')->name('edit');
     Route::put('{member}/edit', 'EditController@edit')->name('edit:action');
-    Route::put('{member}/in', 'ActiveController@in')->name('in:action');
-    Route::put('{member}/out', 'ActiveController@out')->name('out:action');
+    Route::get('{member}/password', 'PasswordController@index')->name('password');
+    Route::put('{member}/password', 'PasswordController@change')->name('password:action');
+    Route::put('{member}/active', 'ActiveController@change')->name('active:action');
+    Route::put('{member}/role', 'RoleController@change')->name('role:action');
     Route::post('recruitment/{recruitment}', 'ImportController@create')->name('import');
 });
 
@@ -44,7 +46,6 @@ Route::group([
 ], function () {
     Route::get('', 'FormController@index')->name('apply');
     Route::post('', 'FormController@create')->name('apply:action');
-    Route::get('success', 'FormController@success')->name('apply:success');
     Route::get('list', 'ListController@index')->name('list');
     Route::get('{recruitment}', 'ItemController@index')->name('item');
 });

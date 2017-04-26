@@ -16,6 +16,7 @@ class ItemController extends Controller
     {
         return view('member.item', [
             'member' => $member,
+            'logs'   => $member->logs()->latest()->get(),
         ]);
     }
 }

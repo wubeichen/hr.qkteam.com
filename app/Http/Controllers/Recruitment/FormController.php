@@ -31,11 +31,6 @@ class FormController extends Controller
         $recruitment->expectation = $request->expectation;
         $recruitment->skill = $request->skill;
         $recruitment->save();
-        return redirect()->route('recruitment.apply:success');
-    }
-
-    public function success()
-    {
-        return view('recruitment.success');
+        return redirect()->route('recruitment.apply')->with('message-success', '提交成功，请耐心等待');
     }
 }

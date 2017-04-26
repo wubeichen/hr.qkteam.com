@@ -17,6 +17,26 @@
 				</div>
 			</div>
 		</section>
+	@if (session('message-success'))
+		<section class="hero is-success">
+			<div class="hero-body">
+				<div class="container">
+					<div class="title">操作成功</div>
+					<div class="subtitle">{{ session('message-success') }}</div>
+				</div>
+			</div>
+		</section>
+	@endif
+	@if (session('message-error'))
+		<section class="hero is-danger">
+			<div class="hero-body">
+				<div class="container">
+					<div class="title">操作失败</div>
+					<div class="subtitle">{{ session('message-error') }}</div>
+				</div>
+			</div>
+		</section>
+	@endif
 		<div class="container" style="margin-top: 30px; margin-bottom: 30px; min-height: calc(100vh - 380px);">@yield('main')</div>
 		<footer class="footer">
 			<div class="container">

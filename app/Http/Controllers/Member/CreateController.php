@@ -26,6 +26,10 @@ class CreateController extends Controller
         $member->school_number = $request->school_number;
         $member->active = 1;
         $member->save();
+        $log = new \App\Models\Log;
+        $log->operated_at = $request->time;
+        $log->init($member, 'in', '加入工作室');
+        $member->logs()->save($log);
         return redirect()->route('member.edit', $member->id);
     }
 }

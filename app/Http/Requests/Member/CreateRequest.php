@@ -27,6 +27,7 @@ class CreateRequest extends FormRequest
             'name'          => 'required|string|max:10',
             'gender'        => 'required|boolean',
             'school_number' => 'required|string|max:20',
+            'time'          => 'nullable|date',
         ];
     }
 }

@@ -18,12 +18,13 @@
             <div class="column">
                 <div class="field">
                     <p class="control">
-                        <label class="radio"><input type="radio" name="gender" value="0">男</label>
+                        <label class="radio"><input type="radio" name="gender" value="0" checked>男</label>
                         <label class="radio"><input type="radio" name="gender" value="1">女</label>
                     </p>
                 </div>
             </div>
         </div>
+        <input type="text" class="input" style="width: 200px" name="time" value="{{ date('Y-m-d', time()) }}">
         <button type="submit" class="button is-danger">新建</button>
     {!! Form::close() !!}
 @endsection

@@ -18,6 +18,11 @@ class Member extends Authenticatable
         return $this->belongsTo('\App\Models\Role', 'role_id', 'id');
     }
 
+    public function logs()
+    {
+        return $this->hasMany('\App\Models\Log', 'member_id', 'id');
+    }
+
     public function isRole(...$roles)
     {
         return $this->role && in_array($this->role->alias, $roles);
