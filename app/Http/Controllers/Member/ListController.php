@@ -14,7 +14,7 @@ class ListController extends Controller
 
     public function index()
     {
-        $members = \App\Models\Member::latest()->get();
+        $members = \App\Models\Member::where('id', '<>', 1)->latest()->get();
         return view('member.list', [
             'members' => $members,
         ]);
