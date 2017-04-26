@@ -31,7 +31,7 @@ class FormController extends Controller
         $recruitment->expectation = $request->expectation;
         $recruitment->skill = $request->skill;
         $recruitment->save();
-        \Mail::to('freshmen@qktem.com')
+        \Mail::to('freshmen@qkteam.com')
             ->send(new \App\Mail\RecruitmentNotification($recruitment));
         return redirect()->route('recruitment.apply')->with('message-success', '提交成功，请耐心等待');
     }
