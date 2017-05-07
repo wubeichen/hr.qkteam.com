@@ -17,7 +17,7 @@ class CreateSummaryTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->date('date');
-            $table->string('content');
+            $table->text('content');
             $table->integer('task_id');
             $table->integer('member_id');
         });
