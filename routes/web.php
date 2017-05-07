@@ -49,3 +49,7 @@ Route::group([
     Route::get('list', 'ListController@index')->name('list');
     Route::get('{recruitment}', 'ItemController@index')->name('item');
 });
+
+Route::get('mmm',function(){
+    return view('summary.form');
+});
