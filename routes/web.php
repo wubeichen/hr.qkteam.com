@@ -50,6 +50,19 @@ Route::group([
     Route::get('{recruitment}', 'ItemController@index')->name('item');
 });
 
-Route::get('mmm',function(){
-    return view('summary.form');
+Route::group([
+    'namespace' => 'Summary',
+    'prefix'    => 'summary',
+    'as'        => 'summary.'
+], function () {
+    Route::get('{task}', 'SummaryController@index')->name('index');
+    Route::post('{task}' ,'SummaryController@create')->name('new:action');
+});
+
+Route::group([
+    'namespace' => 'Task',
+    'prefix'    => 'task',
+    'as'        => 'task.'
+], function () {
+    Route::post('' ,'TaskController@create')->name('new:action');
 });
