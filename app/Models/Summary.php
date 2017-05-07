@@ -22,4 +22,9 @@ class Summary extends Model
     {
         return $this->belongsTo('\App\Models\Member', 'member_id', 'id');
     }
+
+    // public function scopeMember($query, $member)
+    // {
+    //     return $query->where('member', $member);
+    // }
 }

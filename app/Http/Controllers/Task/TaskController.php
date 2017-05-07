@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 class TaskController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
         $task = new \App\Models\Task;
         $task->name = $request->name;

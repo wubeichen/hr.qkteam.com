@@ -14,7 +14,7 @@
                 @if (\Auth::check())
                     <div class="notification is-primary">
                         <div class="title">总结系统</div>
-                        <a class="button is-info" disabled>暂未开放</a>
+                        <a class="button is-warning" href="{{ route('summary.index') }}">立即前往</a>
                     </div>
                 @endif
                 </div>
