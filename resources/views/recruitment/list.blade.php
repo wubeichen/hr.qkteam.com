@@ -12,6 +12,7 @@
                     <th>邮箱</th>
                     <th>扣扣</th>
                     <th>电话</th>
+                    <th>时间</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +26,7 @@
                     <td>{{$recruitment->email}}</td>
                     <td>{{$recruitment->qq}}</td>
                     <td>{{$recruitment->phone}}</td>
+                    <td>{{ $recruitment->created_at }}</td>
                 </tr>
             @endforeach
             </tbody>

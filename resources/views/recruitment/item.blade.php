@@ -3,22 +3,29 @@
 @section('title', '报名管理')
 
 @section('main')
-    <div class="title">
+    <div class="is-pulled-right" printable>报名时间：{{ $recruitment->created_at }}</div>
+    <div class="title" printable>
         <i style="vertical-align: middle" class="fa fa-{{ $recruitment->gender ? 'mars' : 'venus' }}"></i>
         <span>{{$recruitment->name}}</span>
     </div>
+    <button type="button" class="button is-success is-small is-pulled-right" onclick="printpage()">
+        <span class="icon is-small">
+            <i class="fa fa-print"></i>
+        </span>
+        <span>print</span>
+    </button>
 
-    <div class="title is-5"><small>生日</small> {{$recruitment->birthday}}</div>
-    <div class="title is-5"><small>学号</small> {{$recruitment->school_number}}</div>
-    <div class="title is-5"><small>学院</small> {{$recruitment->department}}</div>
-    <div class="title is-5"><small>专业</small> {{$recruitment->major}}</div>
-    <div class="title is-5"><small>邮箱</small> <a href="mailto:{{$recruitment->email}}">{{$recruitment->email}}</a></div>
-    <div class="title is-5"><small>扣扣</small> {{$recruitment->qq}}</div>
-    <div class="title is-5"><small>电话</small> {{$recruitment->phone}}</div>
-    <div class="title is-5"><small>个人主页</small> <a href="{{$recruitment->homepage}}" target="_blank">{{$recruitment->homepage}}</a></div>
-    <div class="title is-5"><small>Github</small> <a href="{{$recruitment->github}}" target="_blank">{{$recruitment->github}}</a></div>
+    <div class="title is-5" printable><small>生日</small> {{$recruitment->birthday}}</div>
+    <div class="title is-5" printable><small>学号</small> {{$recruitment->school_number}}</div>
+    <div class="title is-5" printable><small>学院</small> {{$recruitment->department}}</div>
+    <div class="title is-5" printable><small>专业</small> {{$recruitment->major}}</div>
+    <div class="title is-5" printable><small>邮箱</small> <a href="mailto:{{$recruitment->email}}">{{$recruitment->email}}</a></div>
+    <div class="title is-5" printable><small>扣扣</small> {{$recruitment->qq}}</div>
+    <div class="title is-5" printable><small>电话</small> {{$recruitment->phone}}</div>
+    <div class="title is-5" printable><small>个人主页</small> <a href="{{$recruitment->homepage}}" target="_blank">{{$recruitment->homepage}}</a></div>
+    <div class="title is-5" printable><small>Github</small> <a href="{{$recruitment->github}}" target="_blank">{{$recruitment->github}}</a></div>
 
-    <div class="tile">
+    <div class="tile" printable>
         <div class="tile is-vertical">
             <article class="tile is-child notification">
                 <div class="title">简介</div>

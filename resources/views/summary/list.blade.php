@@ -5,28 +5,12 @@
 @section('main')
 <div class="columns">
     <div class="column is-three-quarters">
-        <button type="button" class="button is-success is-small is-pulled-right" onclick="print()">
+        <button type="button" class="button is-success is-small is-pulled-right" onclick="printpage()">
             <span class="icon is-small">
                 <i class="fa fa-print"></i>
             </span>
             <span>print</span>
         </button>
-        <script>
-        function print() {
-            var printer = window.open('', '');
-            printer.document.body.innerHTML = '<base href="' + window.location.origin + '">';
-            printer.document.body.innerHTML += document.head.innerHTML;
-            $('[printable]').each(function (idx, el) {
-                printer.document.body.innerHTML += el.outerHTML;
-            });
-            printer.document.body.innerHTML += '<hr><small class="is-pulled-right">' + window.location.href + '</small><small>晴空工作室</small>';
-            printer.document.body.innerHTML += '<style>.box {border: 1px solid lightgray; box-shadow: none;}</style>';
-            $(printer.document).ready(function () {
-                printer.print();
-                printer.close();
-            });
-        }
-        </script>
         <div class="title" printable>
             <span>{{ $task->name }}</span>
         @if ($task->status == 0)

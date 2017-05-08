@@ -39,11 +39,11 @@
                 <div class="field">
                     <p class="control">
                         <label class="radio">
-                            <input type="radio" name="gender" value="0" @if (!old('expectation', '')) checked @endif>
+                            <input type="radio" name="gender" value="0" @if (!old('gender', '')) checked @endif>
                             <span>男</span>
                         </label>
                         <label class="radio">
-                            <input type="radio" name="gender" value="1" @if (old('expectation', '')) checked @endif>
+                            <input type="radio" name="gender" value="1" @if (old('gender', '')) checked @endif>
                             <span>女</span>
                         </label>
                     </p>

@@ -5,8 +5,8 @@
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>@yield('title', '晴空工作室')</title>
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/app.css">
-        <script src="/js/app.js"></script>
+        <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+        <script src="{{ mix('/js/app.js') }}"></script>
 	</head>
 	<body>
 		<section class="hero is-primary">
