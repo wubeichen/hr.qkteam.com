@@ -16,6 +16,7 @@
                     <th>扣扣</th>
                     <th>电话</th>
                     <th>身份</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,7 @@
                         <span class="has-text-danger">[退]</span>
                     @endunless
                     </td>
+                    <td><a href="{{ route('summary.list', [$member->id, 1]) }}">查看总结</a></td>
                 </tr>
             @endforeach
             </tbody>

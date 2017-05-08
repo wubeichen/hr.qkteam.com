@@ -20,6 +20,11 @@ class CreateTaskTable extends Migration
             $table->date('start');
             $table->date('end');
         });
+        DB::table('task')->insert([
+            'name'      => '长期总结',
+            'start'     => '2017-01-01',
+            'end'       => '2999-12-31',
+        ]);
     }
 
     /**

@@ -55,7 +55,8 @@ Route::group([
     'prefix'    => 'summary',
     'as'        => 'summary.'
 ], function () {
-    Route::get('{task}', 'SummaryController@index')->name('index');
+    Route::get('', 'SummaryController@index')->name('index');
+    Route::get('/member/{member}/task/{task}', 'SummaryController@list')->name('list');
     Route::post('{task}' ,'SummaryController@create')->name('new:action');
 });
 

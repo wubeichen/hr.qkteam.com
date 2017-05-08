@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Task;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests as R;
 
 class TaskController extends Controller
 {
-    public function create()
+    public function create(R\Task\CreateRequest $request)
     {
         $task = new \App\Models\Task;
         $task->name = $request->name;
