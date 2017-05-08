@@ -46,6 +46,7 @@ Route::group([
 ], function () {
     Route::get('', 'FormController@index')->name('apply');
     Route::post('', 'FormController@create')->name('apply:action');
+    Route::get('success', 'FormController@success')->name('apply:success');
     Route::get('list', 'ListController@index')->name('list');
     Route::get('{recruitment}', 'ItemController@index')->name('item');
 });

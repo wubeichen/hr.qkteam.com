@@ -41,6 +41,12 @@ class FormController extends Controller
             \Mail::to('freshmen@qkteam.com')
                 ->send(new \App\Mail\RecruitmentNotification($recruitment));
         }
-        return redirect()->route('recruitment.apply')->with('message-success', '提交成功，请耐心等待');
+        return redirect()->route('recruitment.apply:success');
+        // return redirect()->route('recruitment.apply')->with('message-success', '提交成功，请耐心等待');
+    }
+
+    public function success()
+    {
+        return view('recruitment.success');
     }
 }
