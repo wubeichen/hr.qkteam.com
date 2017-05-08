@@ -29,14 +29,29 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            class="input @if ($errors->has('qq')) is-danger @endif"
+                            class="input @if ($errors->has('department')) is-danger @endif"
                             type="text"
-                            name="qq"
-                            placeholder="扣扣"
-                            value="{{ old('qq', $member->qq) }}">
+                            name="department"
+                            placeholder="学院"
+                            value="{{ old('department', $member->department) }}">
                     </p>
-                @if ($errors->has('qq'))
-                    <p class="help is-danger">{{ $errors->first('qq') }}</p>
+                @if ($errors->has('department'))
+                    <p class="help is-danger">{{ $errors->first('department') }}</p>
+                @endif
+                </div>
+            </div>
+            <div class="column">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            class="input @if ($errors->has('major')) is-danger @endif"
+                            type="text"
+                            name="major"
+                            placeholder="专业"
+                            value="{{ old('major', $member->major) }}">
+                    </p>
+                @if ($errors->has('major'))
+                    <p class="help is-danger">{{ $errors->first('major') }}</p>
                 @endif
                 </div>
             </div>
@@ -69,6 +84,21 @@
                     </p>
                 @if ($errors->has('email'))
                     <p class="help is-danger">{{ $errors->first('email') }}</p>
+                @endif
+                </div>
+            </div>
+            <div class="column">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            class="input @if ($errors->has('qq')) is-danger @endif"
+                            type="text"
+                            name="qq"
+                            placeholder="扣扣"
+                            value="{{ old('qq', $member->qq) }}">
+                    </p>
+                @if ($errors->has('qq'))
+                    <p class="help is-danger">{{ $errors->first('qq') }}</p>
                 @endif
                 </div>
             </div>
@@ -106,5 +136,6 @@
             </div>
         </div>
         <button type="submit" class="button is-primary">保存</button>
+        <a class="button" href="{{ route('member.item', [$member->id]) }}">返回</a>
     {!! Form::close() !!}
 @endsection

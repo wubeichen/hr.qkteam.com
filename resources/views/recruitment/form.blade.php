@@ -12,7 +12,7 @@
                             class="input @if ($errors->has('name')) is-danger @endif"
                             type="text"
                             name="name"
-                            placeholder="姓名"
+                            placeholder="* 姓名"
                             value="{{ old('name', '') }}">
                     </p>
                 @if ($errors->has('name'))
@@ -27,7 +27,7 @@
                             class="input @if ($errors->has('birthday')) is-danger @endif"
                             type="text"
                             name="birthday"
-                            placeholder="生日"
+                            placeholder="* 生日"
                             value="{{ old('birthday', '') }}">
                     </p>
                 @if ($errors->has('birthday'))
@@ -61,7 +61,7 @@
                             class="input @if ($errors->has('school_number')) is-danger @endif"
                             type="text"
                             name="school_number"
-                            placeholder="学号"
+                            placeholder="* 学号"
                             value="{{ old('school_number', '') }}">
                     </p>
                 @if ($errors->has('school_number'))
@@ -73,14 +73,29 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            class="input @if ($errors->has('qq')) is-danger @endif"
+                            class="input @if ($errors->has('department')) is-danger @endif"
                             type="text"
-                            name="qq"
-                            placeholder="扣扣"
-                            value="{{ old('qq', '') }}">
+                            name="department"
+                            placeholder="* 学院"
+                            value="{{ old('department', '') }}">
                     </p>
-                @if ($errors->has('qq'))
-                    <p class="help is-danger">{{ $errors->first('qq') }}</p>
+                @if ($errors->has('department'))
+                    <p class="help is-danger">{{ $errors->first('department') }}</p>
+                @endif
+                </div>
+            </div>
+            <div class="column">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            class="input @if ($errors->has('major')) is-danger @endif"
+                            type="text"
+                            name="major"
+                            placeholder="* 专业"
+                            value="{{ old('major', '') }}">
+                    </p>
+                @if ($errors->has('major'))
+                    <p class="help is-danger">{{ $errors->first('major') }}</p>
                 @endif
                 </div>
             </div>
@@ -93,7 +108,7 @@
                             class="input @if ($errors->has('phone')) is-danger @endif"
                             type="text"
                             name="phone"
-                            placeholder="联系电话"
+                            placeholder="* 联系电话"
                             value="{{ old('phone', '') }}">
                     </p>
                 @if ($errors->has('phone'))
@@ -108,11 +123,26 @@
                             class="input @if ($errors->has('email')) is-danger @endif"
                             type="text"
                             name="email"
-                            placeholder="常用邮箱"
+                            placeholder="* 常用邮箱"
                             value="{{ old('email', '') }}">
                     </p>
                 @if ($errors->has('email'))
                     <p class="help is-danger">{{ $errors->first('email') }}</p>
+                @endif
+                </div>
+            </div>
+            <div class="column">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            class="input @if ($errors->has('qq')) is-danger @endif"
+                            type="text"
+                            name="qq"
+                            placeholder="* 扣扣"
+                            value="{{ old('qq', '') }}">
+                    </p>
+                @if ($errors->has('qq'))
+                    <p class="help is-danger">{{ $errors->first('qq') }}</p>
                 @endif
                 </div>
             </div>
@@ -128,6 +158,71 @@
             <p class="help is-danger">{{ $errors->first('introduction') }}</p>
         @endif
         </div>
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            class="input @if ($errors->has('homepage')) is-danger @endif"
+                            type="text"
+                            name="homepage"
+                            placeholder="个人主页或博客地址"
+                            value="{{ old('homepage', '') }}">
+                    </p>
+                @if ($errors->has('homepage'))
+                    <p class="help is-danger">{{ $errors->first('homepage') }}</p>
+                @endif
+                </div>
+            </div>
+            <div class="column">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            class="input @if ($errors->has('github')) is-danger @endif"
+                            type="text"
+                            name="github"
+                            placeholder="Github仓库"
+                            value="{{ old('github', '') }}">
+                    </p>
+                @if ($errors->has('github'))
+                    <p class="help is-danger">{{ $errors->first('github') }}</p>
+                @endif
+                </div>
+            </div>
+        </div>
+    @php
+        $skills = ['C', 'C++', 'Python',
+            'HTML', 'CSS', 'JavaScript', 'PHP',
+            'iOS', 'Objective-C', 'swift',
+            'Android', 'Java',
+            'PS', 'AI', 'AE', 'PR',
+        ];
+    @endphp
+        <div class="field">
+            <p class="control">
+            <span>快速点技能</span>
+            @foreach ($skills as $skill)
+                <input
+                    type="checkbox"
+                    id="skill-{{ $loop->index }}" name="skills[]"
+                    value="{{ $skill }}">
+                <label for="skill-{{ $loop->index }}" style="padding-right: 20px">{{ $skill }}</label>
+            @endforeach
+                <textarea id="skill"
+                    class="textarea @if ($errors->has('skill')) is-danger @endif"
+                    name="skill"
+                    placeholder="技能">{{ old('skill', '') }}</textarea>
+            </p>
+        @if ($errors->has('skill'))
+            <p class="help is-danger">{{ $errors->first('skill') }}</p>
+        @endif
+        </div>
+        <script>
+        function addskill(skill) {
+            var el = $('#skill')[0];
+            el.value += ' [' + skill + '] ';
+        }
+        </script>
         <div class="field">
             <p class="control">
                 <textarea
@@ -137,17 +232,6 @@
             </p>
         @if ($errors->has('expectation'))
             <p class="help is-danger">{{ $errors->first('expectation') }}</p>
-        @endif
-        </div>
-        <div class="field">
-            <p class="control">
-                <textarea
-                    class="textarea @if ($errors->has('skill')) is-danger @endif"
-                    name="skill"
-                    placeholder="技能">{{ old('skill', '') }}</textarea>
-            </p>
-        @if ($errors->has('skill'))
-            <p class="help is-danger">{{ $errors->first('skill') }}</p>
         @endif
         </div>
         <button type="submit" class="button is-primary">确认提交</button>

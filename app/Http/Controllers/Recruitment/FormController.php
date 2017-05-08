@@ -24,12 +24,16 @@ class FormController extends Controller
         $recruitment->gender = $request->gender;
         $recruitment->birthday = $request->birthday;
         $recruitment->school_number = $request->school_number;
+        $recruitment->department = $request->department;
+        $recruitment->major = $request->major;
         $recruitment->qq = $request->qq;
         $recruitment->phone = $request->phone;
         $recruitment->email = $request->email;
         $recruitment->introduction = $request->introduction;
+        $recruitment->homepage = $request->homepage;
+        $recruitment->github = $request->github;
         $recruitment->expectation = $request->expectation;
-        $recruitment->skill = $request->skill;
+        $recruitment->skill = join('; ', $request->skills) . "\n" . $request->skill;
         $recruitment->save();
         \Mail::to('freshmen@qkteam.com')
             ->send(new \App\Mail\RecruitmentNotification($recruitment));

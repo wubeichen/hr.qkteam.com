@@ -13,9 +13,13 @@
     </div>
     <div class="title is-5"><small>生日</small> {{$member->birthday}}</div>
     <div class="title is-5"><small>学号</small> {{$member->school_number}}</div>
-    <div class="title is-5"><small>邮箱</small> {{$member->email}}</div>
+    <div class="title is-5"><small>学院</small> {{$member->department}}</div>
+    <div class="title is-5"><small>专业</small> {{$member->major}}</div>
+    <div class="title is-5"><small>邮箱</small> <a href="mailto:{{$member->email}}">{{$member->email}}</a></div>
     <div class="title is-5"><small>扣扣</small> {{$member->qq}}</div>
     <div class="title is-5"><small>电话</small> {{$member->phone}}</div>
+    <div class="title is-5"><small>个人主页</small> <a href="{{$member->homepage}}" target="_blank">{{$member->homepage}}</a></div>
+    <div class="title is-5"><small>Github</small> <a href="{{$member->github}}" target="_blank">{{$member->github}}</a></div>
     <div class="title is-5"><small>{{ $member->bank }}</small> {{$member->bank_number}}</div>
 @can ('update', $member)
     <hr>

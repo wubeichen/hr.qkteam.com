@@ -23,9 +23,13 @@ class ImportController extends Controller
             $member->gender = $recruitment->gender;
             $member->birthday = $recruitment->birthday;
             $member->school_number = $recruitment->school_number;
+            $member->department = $recruitment->department;
+            $member->major = $recruitment->major;
             $member->qq = $recruitment->qq;
             $member->phone = $recruitment->phone;
             $member->email = $recruitment->email;
+            $member->homepage = $recruitment->homepage;
+            $member->github = $recruitment->github;
             $member->password = bcrypt(md5($recruitment->school_number));
             $member->active = 1;
             $member->save();

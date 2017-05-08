@@ -22,9 +22,13 @@ class EditController extends Controller
     public function edit(\App\Models\Member $member, R\Member\EditRequest $request)
     {
         $member->birthday = $request->birthday;
+        $member->department = $request->department;
+        $member->major = $request->major;
         $member->qq = $request->qq;
         $member->phone = $request->phone;
         $member->email = $request->email;
+        $member->homepage = $request->homepage;
+        $member->github = $request->github;
         $member->bank = $request->bank;
         $member->bank_number = $request->bank_number;
         $member->save();

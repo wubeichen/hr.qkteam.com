@@ -10,9 +10,13 @@
 
     <div class="title is-5"><small>生日</small> {{$recruitment->birthday}}</div>
     <div class="title is-5"><small>学号</small> {{$recruitment->school_number}}</div>
-    <div class="title is-5"><small>邮箱</small> {{$recruitment->email}}</div>
+    <div class="title is-5"><small>学院</small> {{$recruitment->department}}</div>
+    <div class="title is-5"><small>专业</small> {{$recruitment->major}}</div>
+    <div class="title is-5"><small>邮箱</small> <a href="mailto:{{$recruitment->email}}">{{$recruitment->email}}</a></div>
     <div class="title is-5"><small>扣扣</small> {{$recruitment->qq}}</div>
     <div class="title is-5"><small>电话</small> {{$recruitment->phone}}</div>
+    <div class="title is-5"><small>个人主页</small> <a href="{{$recruitment->homepage}}" target="_blank">{{$recruitment->homepage}}</a></div>
+    <div class="title is-5"><small>Github</small> <a href="{{$recruitment->github}}" target="_blank">{{$recruitment->github}}</a></div>
 
     <div class="tile">
         <div class="tile is-vertical">
