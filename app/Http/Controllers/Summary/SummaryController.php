@@ -10,14 +10,16 @@ class SummaryController extends Controller
 {
     public function index()
     {
-        $task = \App\Models\Task::latest()->first();
-        return redirect()->route('summary.list', [\Auth::user()->id, $task->id]);
+        return redirect()->route('summary.list', [\Auth::user()->id, 1]);
     }
 
     public function list(\App\Models\Member $member, \App\Models\Task $task)
     {
+        if (!\Auth::user()->isRole('director', 'leader') && \Auth::user()->id !== $member->id) {
+            return redirect()->back()->with('message-error', '您没有权限查看');
+        }
         $summaries = $task->summaries->where('member_id', $member->id);
-        $tasks = \App\Models\Task::all();
+        $tasks = \App\Models\Task::latest()->get();
         return view('summary.list', [
             'summaries' => $summaries,
             'tasks' => $tasks,
@@ -29,10 +31,10 @@ class SummaryController extends Controller
 
     public function create(\App\Models\Task $task,R\Summary\CreateRequest $request)
     {
+        $current = time();
         $start = strtotime($task->start.' 00:00:00');
         $end = strtotime($task->end.' 23:59:59');
-        $now = time();
-        if ($now < $start || $now > $end){
+        if ($current < $start || $current > $end){
             return redirect()->route('summary.list', [\Auth::user()->id, $task->id])->with('message-error', '任务未开始或已过期');
         }
         $summary = new \App\Models\Summary;

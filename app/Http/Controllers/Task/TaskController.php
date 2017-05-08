@@ -8,6 +8,11 @@ use App\Http\Requests as R;
 
 class TaskController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:create,App\Models\Task');
+    }
+
     public function create(R\Task\CreateRequest $request)
     {
         $task = new \App\Models\Task;

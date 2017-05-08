@@ -16,7 +16,9 @@
                     <th>扣扣</th>
                     <th>电话</th>
                     <th>身份</th>
+                @if (\Auth::user()->isRole('director', 'leader'))
                     <th></th>
+                @endif
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +38,9 @@
                         <span class="has-text-danger">[退]</span>
                     @endunless
                     </td>
+                @if (\Auth::user()->isRole('director', 'leader'))
                     <td><a href="{{ route('summary.list', [$member->id, 1]) }}">查看总结</a></td>
+                @endif
                 </tr>
             @endforeach
             </tbody>
