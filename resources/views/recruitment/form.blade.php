@@ -27,7 +27,7 @@
                             class="input @if ($errors->has('birthday')) is-danger @endif"
                             type="text"
                             name="birthday"
-                            placeholder="* 生日"
+                            placeholder="* 生日（格式：1996-01-01）"
                             value="{{ old('birthday', '') }}">
                     </p>
                 @if ($errors->has('birthday'))
@@ -39,11 +39,11 @@
                 <div class="field">
                     <p class="control">
                         <label class="radio">
-                            <input type="radio" name="gender" value="0" @if (!old('gender', '')) checked @endif>
+                            <input type="radio" name="gender" value="1" @if (old('gender', '1')) checked @endif>
                             <span>男</span>
                         </label>
                         <label class="radio">
-                            <input type="radio" name="gender" value="1" @if (old('gender', '')) checked @endif>
+                            <input type="radio" name="gender" value="0" @if (!old('gender', '1')) checked @endif>
                             <span>女</span>
                         </label>
                     </p>

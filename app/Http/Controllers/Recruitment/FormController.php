@@ -33,10 +33,14 @@ class FormController extends Controller
         $recruitment->homepage = $request->homepage;
         $recruitment->github = $request->github;
         $recruitment->expectation = $request->expectation;
-        $recruitment->skill = join('; ', $request->skills) . "\n" . $request->skill;
+        if ($request->has('skills')) {
+            $recruitment->skill = join('; ', $request->skills) . "\n" . $request->skill;
+        }
         $recruitment->save();
-        \Mail::to('freshmen@qkteam.com')
-            ->send(new \App\Mail\RecruitmentNotification($recruitment));
+        if (config('app.env') === 'production') {
+            \Mail::to('freshmen@qkteam.com')
+                ->send(new \App\Mail\RecruitmentNotification($recruitment));
+        }
         return redirect()->route('recruitment.apply')->with('message-success', '提交成功，请耐心等待');
     }
 }
