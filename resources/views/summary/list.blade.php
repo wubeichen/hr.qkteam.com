@@ -5,19 +5,44 @@
 @section('main')
 <div class="columns">
     <div class="column is-three-quarters">
-        <div class="title">
+        <button type="button" class="button is-success is-small is-pulled-right" onclick="print()">
+            <span class="icon is-small">
+                <i class="fa fa-print"></i>
+            </span>
+            <span>print</span>
+        </button>
+        <script>
+        function print() {
+            var printer = window.open('', '');
+            printer.document.body.innerHTML = '<base href="' + window.location.origin + '">';
+            printer.document.body.innerHTML += document.head.innerHTML;
+            $('[printable]').each(function (idx, el) {
+                printer.document.body.innerHTML += el.outerHTML;
+            });
+            printer.document.body.innerHTML += '<hr><small class="is-pulled-right">' + window.location.href + '</small><small>晴空工作室</small>';
+            printer.document.body.innerHTML += '<style>.box {border: 1px solid lightgray; box-shadow: none;}</style>';
+            $(printer.document).ready(function () {
+                printer.print();
+                printer.close();
+            });
+        }
+        </script>
+        <div class="title" printable>
             <span>{{ $task->name }}</span>
         @if ($task->status == 0)
             <small class="has-text-success">[正在进行]</small>
         @endif
         </div>
-        <div class="subtitle">{{ $task->start }} 至 {{ $task->end }}</div>
+        <div class="subtitle" printable>
+            <div class="is-pulled-right">{{ $member->name }}</div>
+            <div>{{ $task->start }} 至 {{ $task->end }}</div>
+        </div>
         @if ($task->status == 0)
         {!! Form::open(['route' => ['summary.new:action', $task->id]]) !!}
             <div class="field">
                 <textarea
                     class="textarea @if ($errors->has('content')) is-danger @endif"
-                    placeholder="内容" name="content"></textarea>
+                    placeholder="及时记录所学所做，养好总结习惯" name="content"></textarea>
                 @if ($errors->has('content'))
                     <p class="help is-danger">{{ $errors->first('content') }}</p>
                 @endif
@@ -34,7 +59,7 @@
         {!! Form::close() !!}
         @endif
         @foreach ($summaries as $summary)
-            <div class="box">
+            <div class="box" printable>
                 <div class="content">
                     <small class="is-pulled-right">提交时间：{{ $summary->created_at }}</small>
                     <strong>{{ $summary->date }}</strong><br>
