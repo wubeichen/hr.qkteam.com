@@ -195,7 +195,7 @@
             'HTML', 'CSS', 'JavaScript', 'PHP',
             'iOS', 'Objective-C', 'swift',
             'Android', 'Java',
-            'PS', 'AI', 'AE', 'PR',
+            'PS', 'AI', 'AU', 'AE', 'PR',
         ];
     @endphp
         <div class="field">
