@@ -135,6 +135,38 @@
                 </div>
             </div>
         </div>
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <p class="control">
+                        <input
+                                class="input @if ($errors->has('homepage')) is-danger @endif"
+                                type="text"
+                                name="homepage"
+                                placeholder="个人主页或博客地址"
+                                value="{{ old('homepage', '') }}">
+                    </p>
+                    @if ($errors->has('homepage'))
+                        <p class="help is-danger">{{ $errors->first('homepage') }}</p>
+                    @endif
+                </div>
+            </div>
+            <div class="column">
+                <div class="field">
+                    <p class="control">
+                        <input
+                                class="input @if ($errors->has('github')) is-danger @endif"
+                                type="text"
+                                name="github"
+                                placeholder="Github仓库"
+                                value="{{ old('github', '') }}">
+                    </p>
+                    @if ($errors->has('github'))
+                        <p class="help is-danger">{{ $errors->first('github') }}</p>
+                    @endif
+                </div>
+            </div>
+        </div>
         <button type="submit" class="button is-primary">保存</button>
         <a class="button" href="{{ route('member.item', [$member->id]) }}">返回</a>
     {!! Form::close() !!}
