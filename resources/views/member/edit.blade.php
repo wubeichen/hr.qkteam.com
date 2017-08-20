@@ -144,7 +144,7 @@
                                 type="text"
                                 name="homepage"
                                 placeholder="个人主页或博客地址"
-                                value="{{ old('homepage', '') }}">
+                                value="{{ old('homepage', $member->homepage) }}">
                     </p>
                     @if ($errors->has('homepage'))
                         <p class="help is-danger">{{ $errors->first('homepage') }}</p>
@@ -159,7 +159,7 @@
                                 type="text"
                                 name="github"
                                 placeholder="Github仓库"
-                                value="{{ old('github', '') }}">
+                                value="{{ old('github', $member->github) }}">
                     </p>
                     @if ($errors->has('github'))
                         <p class="help is-danger">{{ $errors->first('github') }}</p>
