@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'notification@qktem.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'notification@qkteam.com'),
         'name' => env('MAIL_FROM_NAME', '晴空工作室'),
     ],
 
