@@ -234,6 +234,6 @@
             <p class="help is-danger">{{ $errors->first('expectation') }}</p>
         @endif
         </div>
-        <button type="submit" class="button is-primary" onclick="this.disabled=true; this.form.submit();">确认提交</button>
+        <button type="submit" class="button is-primary" onclick="this.disabled=true; this.innerText = '提交中...'; this.form.submit();">确认提交</button>
     {!! Form::close() !!}
 @endsection
