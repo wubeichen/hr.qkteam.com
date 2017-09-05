@@ -14,6 +14,8 @@ class JoinNotification extends Mailable
     public $password;
     public $school_number;
     public $name;
+    public $image_bg;
+    public $image_logo;
     /**
      * Create a new message instance.
      *
@@ -24,6 +26,8 @@ class JoinNotification extends Mailable
         $this->password = $password;
         $this->school_number = $school_number;
         $this->name = $name;
+        $this->image_bg = 'http://hr.qkteam.com/images/bg.jpg';
+        $this->image_logo = 'http://hr.qkteam.com/images/qk_logo.png';
     }
 
     /**
