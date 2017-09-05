@@ -29,6 +29,9 @@
     <a class="button is-warning" href="{{ route('member.password', [$member->id]) }}">安全设置</a>
 @endcan
 @can ('role', $member)
+    <a class="button is-danger" href="{{ route('member.password:reset', [$member->id]) }}">重置密码</a>
+@endcan
+@can ('role', $member)
     <hr>
     {!! Form::open(['route' => ['member.role:action', $member->id], 'method' => 'put']) !!}
         <input type="text" class="input" style="width: 200px" name="time" value="{{ date('Y-m-d', time()) }}">

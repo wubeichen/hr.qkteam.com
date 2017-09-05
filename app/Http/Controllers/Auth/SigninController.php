@@ -16,6 +16,7 @@ class SigninController extends Controller
             'password'       =>  $request->password,
         ])) {
             \Auth::logout();
+            return redirect()->route('home')->with('message-error', '用户名或密码错误');
         };
         return redirect()->route('home');
     }

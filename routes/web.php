@@ -34,6 +34,7 @@ Route::group([
     Route::put('{member}/edit', 'EditController@edit')->name('edit:action');
     Route::get('{member}/password', 'PasswordController@index')->name('password');
     Route::put('{member}/password', 'PasswordController@change')->name('password:action');
+    Route::get('{member}/passwordreset', 'PasswordController@reset')->name('password:reset');
     Route::put('{member}/active', 'ActiveController@change')->name('active:action');
     Route::put('{member}/role', 'RoleController@change')->name('role:action');
     Route::post('recruitment/{recruitment}', 'ImportController@create')->name('import');

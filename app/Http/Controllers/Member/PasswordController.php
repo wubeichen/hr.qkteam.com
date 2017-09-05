@@ -31,4 +31,17 @@ class PasswordController extends Controller
         $member->logs()->save($log);
         return redirect()->route('member.item', [$member->id])->with('message-success', '密码修改成功');
     }
+
+    public function reset(\App\Models\Member $member) {
+      $password = str_random(mt_rand(6, 10));
+      $member->password = bcrypt(md5($password));
+      $member->save();
+      $log = new \App\Models\Log;
+      $log -> init($member, 'password', '重设密码');
+      $member->logs()->save($log);
+      if (config('app.env') === 'production') {
+        \Mail::to($member->email)->send(new \App\Mail\ResetPassword($member->name, $password, $member->school_number));
+      }
+      return redirect()->route('member.item', [$member->id])->with('message-success', '密码重置成功，请尽快到邮箱查看');
+    }
 }

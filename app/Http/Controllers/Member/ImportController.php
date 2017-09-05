@@ -18,7 +18,7 @@ class ImportController extends Controller
         if ($member) {
             return redirect()->route('member.item', [$member->id])->with('message-error', '该成员已存在');
         } else {
-            $password = str_random(mt_rand(0, 16));
+            $password = str_random(mt_rand(6, 10));
             $member = new \App\Models\Member;
             $member->name = $recruitment->name;
             $member->gender = $recruitment->gender;
@@ -38,10 +38,10 @@ class ImportController extends Controller
             $log->operated_at = $request->time;
             $log->init($member, 'in', '加入工作室');
             $member->logs()->save($log);
-            // $image_bg = \Storage::disk('public')->get('bg.jpg');
-            // $image_logo = \Storage::disk('public')->get('qk_logo.png');
-            \Mail::to($recruitment->email)
-              ->send(new \App\Mail\JoinNotification($password, $recruitment->school_number, $recruitment->name));
+            if (config('app.env') === 'production') {
+              \Mail::to($recruitment->email)
+                ->send(new \App\Mail\JoinNotification($password, $recruitment->school_number, $recruitment->name));
+              }
             return redirect()->route('member.item', [$member->id])->with('message-success', '导入成功');
         }
     }

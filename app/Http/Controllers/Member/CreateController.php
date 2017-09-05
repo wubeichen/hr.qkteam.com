@@ -19,9 +19,11 @@ class CreateController extends Controller
 
     public function create(R\Member\CreateRequest $request)
     {
+        $password = str_random(mt_rand(6, 10));
         $member = new \App\Models\Member;
         $member->name = $request->name;
-        $member->password = bcrypt(md5('123456'));
+        $member->email = $request->email;
+        $member->password = bcrypt(md5($password));
         $member->gender = $request->gender;
         $member->school_number = $request->school_number;
         $member->active = 1;
@@ -30,6 +32,10 @@ class CreateController extends Controller
         $log->operated_at = $request->time;
         $log->init($member, 'in', '加入工作室');
         $member->logs()->save($log);
+        if (config('app.env') === 'production') {
+          \Mail::to($request->email)
+            ->send(new \App\Mail\JoinNotification($password, $request->school_number, $request->name));
+          }
         return redirect()->route('member.edit', $member->id);
     }
 }

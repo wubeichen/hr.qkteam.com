@@ -7,27 +7,23 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class JoinNotification extends Mailable
+class ResetPassword extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $name;
     public $password;
     public $school_number;
-    public $name;
-    public $image_bg;
-    public $image_logo;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($password, $school_number, $name)
+    public function __construct($name, $password, $school_number)
     {
+        $this->name = $name;
         $this->password = $password;
         $this->school_number = $school_number;
-        $this->name = $name;
-        $this->image_bg = env('APP_URL').'/images/bg.jpg';
-        $this->image_logo = env('APP_URL').'/images/qk_logo.png';
     }
 
     /**
@@ -37,7 +33,6 @@ class JoinNotification extends Mailable
      */
     public function build()
     {
-      return $this->subject('【欢迎加入晴空工作室】')
-          ->view('mail.join');
+        return $this->subject('【晴空工作室】密码重置')->view('mail.resetpassword');
     }
 }

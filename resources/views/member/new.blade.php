@@ -16,6 +16,11 @@
                 </p></div>
             </div>
             <div class="column">
+                <div class="field"><p class="control">
+                    <input class="input" type="text" name="email" placeholder="邮箱">
+                </p></div>
+            </div>
+            <div class="column">
                 <div class="field">
                     <p class="control">
                         <label class="radio"><input type="radio" name="gender" value="0" checked>男</label>
