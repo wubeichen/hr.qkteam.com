@@ -27,6 +27,16 @@
 			</div>
 		</section>
 	@endif
+	@if (session('message-warning'))
+		<section class="hero is-warning">
+			<div class="hero-body">
+				<div class="container">
+					<div class="title">操作似乎有些小问题哦</div>
+					<div class="subtitle">{{ session('message-warning') }}</div>
+				</div>
+			</div>
+		</section>
+	@endif
 	@if (session('message-error'))
 		<section class="hero is-danger">
 			<div class="hero-body">
