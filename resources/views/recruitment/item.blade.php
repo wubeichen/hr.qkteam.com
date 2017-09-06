@@ -49,7 +49,7 @@
     <hr>
     {!! Form::open(['route' => ['member.import', $recruitment->id]]) !!}
         <input type="text" class="input" style="width: 200px" name="time" value="{{ date('Y-m-d', time()) }}">
-        <button class="button is-danger">加入工作室</button>
+        <button class="button is-danger" onclick="this.disabled=true;">加入工作室</button>
     {!! Form::close() !!}
 @endcan
 @endif
