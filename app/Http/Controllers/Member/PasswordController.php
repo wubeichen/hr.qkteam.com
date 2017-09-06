@@ -42,9 +42,9 @@ class PasswordController extends Controller
         $member->logs()->save($log);
 
         if (config('app.env') === 'production') {
-            try {
+            if ($member->email) {
                 \Mail::to($member->email)->send(new \App\Mail\ResetPassword($member->name, $password, $member->school_number));
-            } catch (e) {
+            } else {
                 return redirect()->route('member.item', [$member->id])->with('message-warning', '密码重置成功，邮件发送失败');
             }
         }
