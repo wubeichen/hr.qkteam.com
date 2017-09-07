@@ -52,7 +52,7 @@
                 <div class="title">{{ \Auth::user()->name }}</div>
                 <div class="subtitle">已登录</div>
                 <a class="button" href="{{ route('member.item', \Auth::user()->id) }}">个人信息</a>
-                <a class="button" href="{{ route('auth.signout:action') }}">个人信息</a>
+                <a class="button is-danger" href="{{ route('auth.signout:action') }}">登出</a>
             </div>
         @else
             <div class="notification is-default">
