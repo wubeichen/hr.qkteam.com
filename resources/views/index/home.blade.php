@@ -52,8 +52,9 @@
                 <div class="title">{{ \Auth::user()->name }}</div>
                 <div class="subtitle">已登录</div>
                 <a class="button" href="{{ route('member.item', \Auth::user()->id) }}">个人信息</a>
+                <a class="button" href="{{ route('auth.signout:action') }}">个人信息</a>
             </div>
-        @endif
+        @else
             <div class="notification is-default">
                 <div class="title">成员入口</div>
                 {!! Form::open(['route' => 'auth.signin:action']) !!}
@@ -66,6 +67,7 @@
                     <button type="submit" class="button is-primary">登录</button>
                 {!! Form::close() !!}
             </div>
+        @endif
             <script>
             $('form')[0].onsubmit = function () {
                 var el = $('input[type=password]')[0];

@@ -19,6 +19,7 @@ Route::group([
     'as'            => 'auth.',
 ], function () {
     Route::post('', 'SigninController@signin')->name('signin:action');
+    Route::get('', 'SignoutController@signout')->name('signout:action');
 });
 
 Route::group([
